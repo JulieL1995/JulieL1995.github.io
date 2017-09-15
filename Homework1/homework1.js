@@ -5,7 +5,7 @@
     var buffers = new Array(number_of_samples); // 0 : kick, 1 : snare, 2 : hihat, 3 : omg
     var volume_id = new Array("kickVol","snareVol","hihatVol", "omgVol");
     var volume_label_id = new Array("kickVolLabel","snareVolLabel","hihatVolLabel", "omgVolLabel");
-    var urls = ["hit.mp3","whut.mp3","gasp.mp3","omg.mp3"];
+    var urls = ["kick.mp3","snare.mp3","hihat.mp3","omg.mp3"];
     var gain_nodes = new Array(number_of_samples);
 
     // background music
