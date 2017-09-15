@@ -1,6 +1,7 @@
 body { padding-top: 70px; }
 
-button {
+
+#beatboxRow button {
         padding: 5px;
         background: rgb(200, 200, 200);
         border: 1px solid rgb(122, 122, 122);
@@ -11,7 +12,7 @@ button {
         font-size:15px
 }
 
-button.active, button:active {
+#beatboxRow button.active, button:active {
         background: rgb(100, 100, 100);
         border: 1px solid rgb(0,0,0);
         box-shadow: 0 0 2px 0 rgb(0,0,0);
@@ -41,13 +42,30 @@ div#kick{
         float:left;
 }
 
-#music {
-        width:130px;
-        height:600px;
-        float:left;
-}
 
 input.volume {
         width:120px;
         height:10px;
 } 
+
+#currentSongDiv {
+        text-align: center;
+        height: 200px;
+        background: DarkTurquoise;
+        opacity: 0.5;
+}
+
+#currentSongPlaying {
+        font-size: xx-large;
+        color: white;
+        vertical-align: bottom;
+}
+
+#musicVolLabel {
+        text-align: center;
+}
+
+#buttonsRow {
+        text-align: center;
+}
+

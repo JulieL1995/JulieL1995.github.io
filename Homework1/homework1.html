@@ -49,33 +49,57 @@
     <div class="container">
         <h1> Homework#1: Beatbox </h1>
         <br>
+        <div id="backgroundMusicRow" class="row jumbotron">
+            <div class="col-md-8">
+                <div class="row jumbotron" id="currentSongDiv"><p id="currentSongPlaying">No song playing</p></div>
+                <div class="row" id="buttonsRow">
+                    <button class="btn btn-default" type="submit" onclick="play()"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                    <button class="btn btn-default" type="submit" onclick="pause()"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+                    <button class="btn btn-default" type="submit" onclick="replay()"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></button>
+                    <button class="btn btn-default" type="submit" onclick="volumeDown()"><span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span></button>
+                    <button class="btn btn-default" type="submit" onclick="volumeUp()"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span></button>
+                </div>
+                <div class="row"> <p id="musicVolLabel"></p> </div>
+            </div>
+            <div class="col-md-4">
+                <table class="table table-bordered table-hover">
+                    <thead><th>Available music</th></thead>
+                    <tbody id="musicTable">
+                        <tr id="row0" class="clickable-row" onclick="playmusic(0)"><td>Celtic music</td></tr>
+                        <tr id="row1" class="clickable-row" onclick="playmusic(1)"><td>Hiphop</td></tr>
+                    </tbody>
+                </table>
+                <form>
+                    <p>Add a song</p>
+                    <input id="fileChooseInput" type="file" accept="audio/*">
+                </form>
+            </div>
+        </div>
+        
+        <div class="row" id="beatboxRow">
         <div id = "kick" align = "center">
-            <button id="kickPad" onmousedown="playdrum(0)" > Kick ('a' key)</button>
+            <button class="beatbox" id="kickPad" onmousedown="playdrum(0)" > Kick ('a' key)</button>
             <p id="kickVolLabel"></p>
             <input class="volume" onchange="changegain(0,this.value)" id="kickVol" title="Kick volume" type="range" min="-24" max ="0" value = "-12">
         </div>
         <div id = "snare" align = "center">
-            <button id="snarePad" onmousedown="playdrum(1)" > Snare ('s' key)</button>
+            <button class="beatbox" id="snarePad" onmousedown="playdrum(1)" > Snare ('s' key)</button>
             <p id="snareVolLabel"></p>
             <input class="volume" onchange="changegain(1,this.value)" id="snareVol" title="Snare volume" type="range" min="-24" max ="0" value = "-12">
         </div>
         <div id = "hihat" align = "center">
-            <button id="hihatPad" onmousedown="playdrum(2)"> Hihat ('l' key)</button>
+            <button class="beatbox" id="hihatPad" onmousedown="playdrum(2)"> Hihat ('l' key)</button>
             <p id="hihatVolLabel"></p>
             <input class="volume" onchange="changegain(2,this.value)" id="hihatVol" title="Hihat volume" type="range" min="-24" max ="0" value = "-12">
         </div>
         <div id = "omg" align = "center">
-            <button id="omgPad" onmousedown="playdrum(3)"> OMG ('o' key)</button>
+            <button class="beatbox" id="omgPad" onmousedown="playdrum(3)"> OMG ('o' key)</button>
             <p id="omgVolLabel"></p>
             <input class="volume" onchange="changegain(3,this.value)" id="omgVol" title="OMG volume" type="range" min="-24" max ="0" value = "-12">
         </div>
-        <div id = "music" align = "center">
-            <button id="musicPad" onmousedown="playmusic()">Some Celtic Folk Music</button>
-            <p id="musicVolLabel"></p>
-            <input class="volume" onchange="changegain(4,this.value)" id="musicVol" title="Music volume" type="range" min="-24" max ="0" value = "-12">
+     
         </div>
-    
-        <input id="fileChooseInput" type="file"></input>
+        
     </div><!-- /.container -->
     
     <footer>
