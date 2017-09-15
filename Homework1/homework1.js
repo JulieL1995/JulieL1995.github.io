@@ -1,5 +1,6 @@
     var context = new (window.AudioContext || window.webkitAudioContext)();
-
+    var context2 = new (window.AudioContext || window.webkitAudioContext)();
+    
     // beatbox samples
     var number_of_samples = 4;
     var buffers = new Array(number_of_samples); // 0 : kick, 1 : snare, 2 : hihat, 3 : omg
@@ -37,7 +38,7 @@
     }
 
     // stuf for music samples
-    gain_node_music = context.createGain();
+    gain_node_music = context2.createGain();
     gain_node_music.gain.value = db2gain(-12);
     document.getElementById("musicVolLabel").innerHTML = 'Volume:  -12dB'; 
     
@@ -47,7 +48,7 @@
                 request.open("Get",url_music[i],true);   
                 request.responseType = "arraybuffer";
                 request.onload = function(){
-                    context.decodeAudioData(request.response, function(buffer){buffer_music[i] = buffer;});
+                    context2.decodeAudioData(request.response, function(buffer){buffer_music[i] = buffer;});
                 }
                 request.send();
         })(i);
@@ -157,13 +158,13 @@
             current_song = i;
             document.getElementById("currentSongPlaying").innerHTML = song1.innerHTML + " is playing";
             
-            var music_source = context.createBufferSource();
+            var music_source = context2.createBufferSource();
             music_source.buffer = buffer_music[i];
             current_sourceBuffer = music_source;
             music_source.start(0,0);
 	  
             music_source.connect(gain_node_music);
-            gain_node_music.connect(context.destination);
+            gain_node_music.connect(context2.destination);
     }
     
     function gain2db(gain_value) {
@@ -190,12 +191,12 @@
     
     function pause() {
         if (current_sourceBuffer)
-            context.suspend();
+            context2.suspend();
     }
 
     function play() {
         if (current_sourceBuffer) {
-            context.resume();
+            context2.resume();
         }
     }
     
@@ -221,6 +222,6 @@
     }
     
     function fileLoaded(e) {
-        context.decodeAudioData(e.target.result, function(buffer) { buffer_music.push(buffer); });
+        context2.decodeAudioData(e.target.result, function(buffer) { buffer_music.push(buffer); });
     }
     
