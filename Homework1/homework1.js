@@ -37,7 +37,7 @@
         })(i);
     }
 
-    // stuf for music samples
+    // stuff for music samples
     gain_node_music = context2.createGain();
     gain_node_music.gain.value = db2gain(-12);
     document.getElementById("musicVolLabel").innerHTML = 'Volume:  -12dB'; 
