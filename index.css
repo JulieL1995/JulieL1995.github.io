@@ -1,0 +1,14 @@
+.bubble {
+    height: 220px;
+    width: 220px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+body { 
+    padding-top: 70px; 
+    padding-bottom: 70px;
+}
+
+.row {
+    text-align: center;
+}
