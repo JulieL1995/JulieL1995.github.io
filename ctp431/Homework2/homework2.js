@@ -28,7 +28,6 @@ function setup() {
     flower_img = loadImage("./flower.png");
     grass_img = loadImage("./grass.png");
     grass2_img = loadImage("./grass_night.png");
-    firefly = loadImage("./firefly2.png");
   
     // audio
     analyzer = new p5.Amplitude();
@@ -73,17 +72,18 @@ function setup() {
     control.id("input");
     control.attribute("accept","audio/*");
     
-    var new_song = createElement('tr', "<td>Niels & Wiels - Skwon Meiske.mp3</td>");
-    new_song.parent("#musicTable");
-    new_song.attribute("id", "row0");
-    new_song.addClass("clickable-row");
-    new_song.attribute("onclick", "playmusic(1)");
-    new_song = createElement('tr', "<td>Tsar B - Escalate.mp3</td>");
+    var new_song = createElement('tr', "<td>Tsar B - Escalate.mp3</td>");
     new_song.parent("#musicTable");
     new_song.attribute("id", "row0");
     new_song.addClass("clickable-row");
     new_song.attribute("onclick", "playmusic(0)");
     new_song.addClass("active");
+    new_song = createElement('tr', "<td>Niels & Wiels - Skwon Meiske.mp3</td>");
+    new_song.parent("#musicTable");
+    new_song.attribute("id", "row0");
+    new_song.addClass("clickable-row");
+    new_song.attribute("onclick", "playmusic(1)");
+    
 }
 
 // source: https://p5js.org/examples/form-star.html
