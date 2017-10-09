@@ -80,7 +80,7 @@ function setup() {
     new_song.addClass("active");
     var new_song2 = createElement('tr', "<td>Niels & Wiels - Skwon Meiske.mp3</td>");
     new_song2.parent("#musicTable");
-    new_song2.attribute("id", "row0");
+    new_song2.attribute("id", "row1");
     new_song2.addClass("clickable-row");
     new_song2.attribute("onclick", "playmusic(1)");
     
