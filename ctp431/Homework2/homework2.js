@@ -16,8 +16,8 @@ var songs = [];
 
 // https://p5js.org/examples/sound-measuring-amplitude.html
 function preload() {
-    songs[1] = loadSound('./Niels & Wiels - Skwon Meiske.mp3');
     songs[0] = loadSound('./Tsar B - Escalate.mp3');
+    songs[1] = loadSound('./Niels & Wiels - Skwon Meiske.mp3');
 }
 
 
@@ -78,11 +78,11 @@ function setup() {
     new_song.addClass("clickable-row");
     new_song.attribute("onclick", "playmusic(0)");
     new_song.addClass("active");
-    new_song = createElement('tr', "<td>Niels & Wiels - Skwon Meiske.mp3</td>");
-    new_song.parent("#musicTable");
-    new_song.attribute("id", "row0");
-    new_song.addClass("clickable-row");
-    new_song.attribute("onclick", "playmusic(1)");
+    var new_song2 = createElement('tr', "<td>Niels & Wiels - Skwon Meiske.mp3</td>");
+    new_song2.parent("#musicTable");
+    new_song2.attribute("id", "row0");
+    new_song2.addClass("clickable-row");
+    new_song2.attribute("onclick", "playmusic(1)");
     
 }
 
