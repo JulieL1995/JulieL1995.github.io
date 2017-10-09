@@ -11,7 +11,7 @@ var positionsY = [];
 
 var day = 1;
 
-var number_of_songs = 1;
+var number_of_songs = 2;
 var songs = [];
 
 // https://p5js.org/examples/sound-measuring-amplitude.html
