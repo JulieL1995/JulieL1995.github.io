@@ -8,3 +8,7 @@ body {
     padding-right: 0px;
 }
 
+#myApp {
+    width: 1500px;
+    height: 720px;
+}

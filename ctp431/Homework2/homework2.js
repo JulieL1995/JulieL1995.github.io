@@ -14,7 +14,7 @@ var day = 1;
 var number_of_songs = 2;
 var songs = [];
 
-// https://p5js.org/examples/sound-measuring-amplitude.html
+
 function preload() {
     songs[0] = loadSound('./Tsar B - Escalate.mp3');
     songs[1] = loadSound('./Niels & Wiels - Skwon Meiske.mp3');
@@ -109,7 +109,6 @@ function draw() {
         noStroke();
     
         // root mean square amplitude
-        // https://p5js.org/examples/sound-measuring-amplitude.html
         var rms = analyzer.getLevel();
    
         // sun 
@@ -125,7 +124,6 @@ function draw() {
         var spectrum = fft.analyze();
         
         // flowers
-        // https://p5js.org/reference/#/p5.FFT
         var color_stem = color('#0DDE17');
         fill(color_stem);
         var x = space_between_flowers;
