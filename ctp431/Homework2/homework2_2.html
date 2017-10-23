@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+ 
+<!doctype html>
+<html>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <link rel="shortcut icon" href="grammy.png">
-    <title>Julie's Music &#38; Audio Computing Page</title>
     <meta name="description" content="Website for Music and Audio Computing course">
     <meta name="author" content="Julie Lelong">
 
@@ -19,63 +19,57 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <link href="costum.css" rel="stylesheet">
-  </head>
-
+    <link href="homework2.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../grammy.png">
+    <title>Homework 2: Music Visualizer</title>
+    <script src="p5.min.js"></script>
+    <script src="addons/p5.dom.min.js"></script>
+    <script src="addons/p5.sound.min.js"></script>
+    <script src="addons/p5.collide2d.min.js"></script>
+    <script src="homework2_2.js"></script>
+    <script src="submarine.js"></script>
+</head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar">test</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="http://mac.kaist.ac.kr/~juhan/ctp431/" target="blank"><span class="label label-default">CTP431 Fall 2017</span></a>
         </div>
         
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+            <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+            <li><a href="./homework2_1.html">Visualizer</a></li>
+            <li class="active"><a href="#">Play a game!</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <div class="container">
-            <div class="container">
-                <h1>Welcome to the Music &#38; Audio Computing page of Julie Lelong</h1>
-                <hr>
+    <div>
+        <h1> Homework#2: Music Visualizer - A Game </h1>
+        <div class="row">
+            <div id="myApp2" class="col-md-10"></div>
+            <div class="col-md-2">
+                <h2>Description:</h2>
                 <p>
-                    On this website you can find my assignments for the course "Music &#38; Audio Computing".
+                    The goal of this game is to reach the end of the cave with the yellow submarine. The cave is formed using the amplitude of the song. Try to catch as many sea shells as you can on your way to the finish. But be careful! When you hit the floor or ceiling of the cave, the cutoff frequency of the filter will get lower and the passband will get smaller. Try to reach the end of the cave before the cutoff frequency reaches below 10 Hz.
                 </p>
-            </div><!-- /.container -->
-            <ul class="media-list">
-                <li class="media well">
-                    <div class="media-left">
-                        <a href="./Homework1/homework1.html">
-                            <img class="media-object" src="./Homework1/beatbox.jpg" alt="BEATBOX">
-                        </a>
-                    </div>
-                    <div class="media-body">
-                        <h1>Homework 1</h1>
-                        <p>Beatbox Application</p>
-                    </div>
-                </li>
-                <li class="media well">
-                    <div class="media-body">
-                        <h1>Homework 2</h1>
-                        <p>Music Visualizer</p>
-                    </div>
-                    <div class="media-right">
-                        <a href="./hw2.html">
-                            <img class="media-object" src="./Homework2/homework2.png" alt="MUSIC VISUALIZATION">
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
+                <br>
+                <p>
+                    Type 'h' to make the submarine go up.
+                </p>
+                <br>
+                <p>
+                    The song used in the game is "Yellow Submarine" by The Beatles.
+                </p>
+            </div>
+        </div>
+        
+        <h2>References:</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=CKeyIbT3vXI">Fireworks example (for the physics stuff)</a></li>
+        </ul>
     </div><!-- /.container -->
     
     <footer>
@@ -94,4 +88,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
+
+
 </html>
+ 

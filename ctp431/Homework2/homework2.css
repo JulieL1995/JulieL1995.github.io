@@ -12,3 +12,11 @@ body {
     width: 1500px;
     height: 720px;
 }
+.bubble {
+    height: 220px;
+    width: 220px;
+    box-shadow: 10px 10px 5px #888888;
+}
+.titles {
+    text-align: center;
+}
