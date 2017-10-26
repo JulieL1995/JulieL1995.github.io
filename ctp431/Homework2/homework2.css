@@ -20,3 +20,7 @@ body {
 .titles {
     text-align: center;
 }
+
+#descr {
+    width : 800px;
+}
