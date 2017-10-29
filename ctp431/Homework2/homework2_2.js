@@ -156,7 +156,7 @@ function checkCollide() {
         var j = (head + i) % data.length;
         if (submarine.pos.y < height/2) { // upper half
             if (collideRectPoly(rect_width*i, 0, rect_width, height/2 - data[j], poly)) {
-                submarine.applyForce(createVector(0, 0.015));
+                submarine.applyForce(createVector(0, 0.2));
                 if (freq > 10)
                     freq--;
                 else
@@ -167,7 +167,7 @@ function checkCollide() {
         }
         else { // lower half
             if (collideRectPoly(rect_width*i, height/2 + data[j], rect_width, height/2 - data[j], poly)) {
-                submarine.applyForce(createVector(0, -0.015));
+                submarine.applyForce(createVector(0, -0.2));
                 if (freq > 10)
                     freq--;
                 else
