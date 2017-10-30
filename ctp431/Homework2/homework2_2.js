@@ -93,10 +93,9 @@ function draw() {
         checkCatch();
         checkCollide();
         
-    
+        image(shell, width - 370, 5, 20, 20);
+        text(": " + nr_shells, width-340, 20);
         text("Frequence range: " + freq, width - 200, 20);
-        image(shell, width - 270, 5, 20, 20);
-        text(": " + nr_shells, width-240, 20);
         
         if (finishFrameCount > 0 && frameCount - finishFrameCount >= width/rect_width) 
             finishGame();
