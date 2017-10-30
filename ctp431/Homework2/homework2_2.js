@@ -196,6 +196,9 @@ function startGame() {
 
 function finishGame() {
     if (start) {
+        for (var i = 0; i < data.length; i++) {
+            data[i] = 100;
+        }
         button = createButton("Try again");
         button.style("display", "block");
         button.mousePressed(startGame);
