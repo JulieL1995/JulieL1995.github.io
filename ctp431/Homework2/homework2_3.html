@@ -1,4 +1,3 @@
- 
 <!doctype html>
 <html>
 
@@ -25,9 +24,8 @@
     <script src="p5.min.js"></script>
     <script src="addons/p5.dom.min.js"></script>
     <script src="addons/p5.sound.min.js"></script>
-    <script src="addons/p5.collide2d.min.js"></script>
-    <script src="homework2_2.js"></script>
-    <script src="submarine.js"></script>
+    <script src="fireworks.js"></script>
+    <script src="homework3.js"></script>
 </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -40,37 +38,26 @@
           <ul class="nav navbar-nav">
             <li><a href="../index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
             <li><a href="./homework2_1.html">In the field</a></li>
-            <li><a href="./homework2_3.html">At sea</a></li>
-            <li class="active"><a href="#">Under the sea</a></li>
+            <li class="active"><a href="#">At sea</a></li>
+            <li><a href="./homework2_2.html">Under the sea</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div>
-        <h1> Homework#2: Music Visualizer - A Game </h1>
+        <h1> Homework#2: Music Visualizer </h1>
         <div class="row">
-            <div id="myApp2"></div>
-            
+            <div id="myApp" class="col-md-10"></div>
         </div>
-        <div id="descr">
-                <h2>Description:</h2>
-                <ul>
-                <li>
-                    The goal of this game is to reach the end of the cave with the yellow submarine. The cave is formed using the amplitude of the song. Try to catch as many sea shells as you can on your way to the finish. But be careful! When you hit the floor or ceiling of the cave, the cutoff frequency of the filter will get lower and the passband will get smaller. Try to reach the end of the cave before the cutoff frequency reaches below 10 Hz.
-                </li>
-                
-                <li>
-                    Type 'h' to make the submarine go up.
-                </li>
-                <li>
-                    The song used in the game is "Yellow Submarine" by The Beatles.
-                </li>
-                </ul>
-            </div>
+        <h2>Description:</h2>
+        <ul>
+            <li>Day: Depending on the amplitude (RMS) more or less dolphins will jump out of the water. A higher amplitude will result in more dolphins.</li>
+            <li>Night: By clicking on the canvas you can play a tone. The x-value of the position of the mouse will decide the frequency of the tone, the y-value the volume.</li>
+        </ul>
         <h2>References:</h2>
         <ul>
-            <li><a href="https://www.youtube.com/watch?v=CKeyIbT3vXI" target="blank">Fireworks example (for the physics stuff)</a></li>
+           <li><a href="https://www.youtube.com/watch?v=CKeyIbT3vXI" target="blank">Fireworks example</a></li>
         </ul>
     </div><!-- /.container -->
     
