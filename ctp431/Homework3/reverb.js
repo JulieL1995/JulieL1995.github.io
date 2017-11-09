@@ -59,6 +59,8 @@ var Reverb = function(context, parameters, delay) {
 Reverb.prototype.updateParams = function (value) {
 
 	this.parameters.reverbWetDry = value;
+    this.wetGain.gain.value = value;
+    this.dryGain.gain.value = 1 - value;
 
 }
 
