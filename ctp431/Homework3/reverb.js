@@ -15,6 +15,7 @@ var Reverb = function(context, parameters, delay) {
     }
     request.send();
     this.reverb.buffer = myBuffer;
+    if (!myBuffer){window.alert("problem with buffer");}
     
     this.dryGain = context.createGain();
     this.wetGain = context.createGain();
