@@ -4,14 +4,14 @@ var Reverb = function(context, parameters, delay) {
     //this.input = context.createGain();
     
     // create nodes
-    this.reverb = context.createConvolver();
+    var reverb = context.createConvolver();
     
     var request = new XMLHttpRequest();
     request.open("GET", "./Homework3/cathedral.wav", true);
     request.responseType = "arraybuffer";
     request.onload = function() {
         context.decodeAudioData( request.response, 
-            function(buffer) { this.reverb.buffer = buffer; } );
+            function(buffer) { reverb.buffer = buffer; } );
     }
     request.send();
     
@@ -20,9 +20,9 @@ var Reverb = function(context, parameters, delay) {
     
     // connect
     //this.input.connect(this.reverb);
-    delay.wetGain.connect(this.reverb);
-    delay.dryGain.connect(this.reverb);
-    this.reverb.connect(this.wetGain);
+    delay.wetGain.connect(reverb);
+    delay.dryGain.connect(reverb);
+    reverb.connect(this.wetGain);
     delay.wetGain.connect(this.dryGain);
     delay.dryGain.connect(this.dryGain);
     
