@@ -1,7 +1,11 @@
 <html>
 
 <head>
+    <link rel="shortcut icon" href="grammy.png">
 	<title> Homework #3: Music Synthesizer  </title>
+	<meta name="description" content="Website for Music and Audio Computing course">
+    <meta name="author" content="Julie Lelong">
+	
 	<link  href='Homework3/hw3.css' rel='stylesheet'>
 	<script src="Homework3/nexusUI.js"></script>
 	<script src="Homework3/synth.js"></script>
@@ -12,20 +16,24 @@
 
 
 <body>
+     <nav>      
+        <a href="index.html"><img class="myIcon" src="Homework3/home.png" alt="Home"> <a/>
+     </nav>
+
 	<h1> Homework #3: Music Synthesizer </h1>
 
 	<div id="dummy">
-	<p class="panelLabel"> CTP431 Synth </p>
+	<p class="myPanelLabel"> CTP431 Synth </p>
 	</div>
 
 	<div id="osc">
-	<p class="panelLabel"> Oscillator </p>
+	<p class="myPanelLabel"> Oscillator </p>
 	<canvas nx="dial" id="gui_lfo_rate" height="120" width="80" label="LFO rate"> </canvas> 
 	<canvas nx="dial" id="gui_lfo_depth" height="120" width="80" label="LFO depth"> </canvas> 
 	</div>
 
 	<div id="filter">
-	<p class="panelLabel"> Filter </p>
+	<p class="myPanelLabel"> Filter </p>
 	<canvas nx="dial" id="gui_filter_freq" height="120" width="80" label="Cut-off"> </canvas> 
 	<canvas nx="dial" id="gui_filter_env_attack" height="120" width="80" label="Attrack"> </canvas> 
 	<canvas nx="dial" id="gui_filter_env_decay" height="120" width="80" label="Decay"> </canvas> 
@@ -34,7 +42,7 @@
 	</div>
 
 	<div id="ampEnv">
-	<p class="panelLabel"> Amp Envelope </p>
+	<p class="myPanelLabel"> Amp Envelope </p>
 	<canvas nx="dial" id="gui_amp_env_attack" height="120" width="80" label="Attrack"> </canvas> 
 	<canvas nx="dial" id="gui_amp_env_decay" height="120" width="80" label="Decay"> </canvas> 
 	<canvas nx="dial" id="gui_amp_env_sustain" height="120" width="80" label="Sustain"> </canvas> 
@@ -43,14 +51,14 @@
 	<br>
 
 	<div id="delay">
-	<p class="panelLabel"> Feedback Delay </p>
+	<p class="myPanelLabel"> Feedback Delay </p>
 	<canvas nx="dial" id="gui_delay_time" height="120" width="80" label="Time"> </canvas> 
 	<canvas nx="dial" id="gui_delay_gain" height="120" width="80" label="Gain"> </canvas> 
 	<canvas nx="dial" id="gui_delay_wet_dry" height="120" width="80" label="Wet/Dry"> </canvas> 
 	</div>
 
 	<div id="reverb">
-	<p class="panelLabel"> Reverb </p>
+	<p class="myPanelLabel"> Reverb </p>
 	<canvas nx="dial" id="gui_reverb_time" height="120" width="80" label="Wet/Dry"> </canvas> 
 	</div>
 
@@ -58,6 +66,22 @@
 	<div id="keys">
 	<canvas nx="keyboard" id="gui_keyboard"  height="150" width="750"></canvas>
 	</div>
+	
+	 <footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text"> &#169; 2017 Lelong Julie </p>
+        </div>
+    </nav>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 

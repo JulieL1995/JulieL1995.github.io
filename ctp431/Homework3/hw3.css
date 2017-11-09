@@ -1,21 +1,9 @@
-button {
-    padding: 5px;
-    background: rgb(200, 200, 200);
-    border: 1px solid rgb(122, 122, 122);
-    border-radius: 2px;
-    outline: none;
-    width:120px;
-    height:120px;
-    font-size:15px
+.myIcon{
+        width: 30px;
+        height: 30px;
 }
 
-button.active, button:active {
-    background: rgb(100, 100, 100);
-    border: 1px solid rgb(0,0,0);
-    box-shadow: 0 0 2px 0 rgb(0,0,0);
-}
-
-p.panelLabel {
+p.myPanelLabel {
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
     font-size: 15px;
     font-style: normal;
@@ -26,7 +14,7 @@ p.panelLabel {
     margin: 1px 1px 1px 1px;
 }
 
-div#dummy{
+#dummy{
     padding:10px;
     margin: 5px 5px 5px 5px;
     background: rgb(120, 120, 120);
