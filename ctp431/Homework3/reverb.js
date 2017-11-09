@@ -20,8 +20,9 @@ var Reverb = function(context, parameters, delay) {
     this.wetGain = context.createGain();
     
     // connect
-    delay.wetGain.connect(reverb);
+    
     delay.dryGain.connect(reverb);
+    delay.wetGain.connect(reverb);
     
     reverb.connect(this.wetGain);
     
