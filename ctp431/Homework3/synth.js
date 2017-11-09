@@ -2,31 +2,7 @@
 
 var Voice = function(context, frequency, amplitude, parameters, effect_node) {
 	this.context = context;
-    // TODO: OSC stuff en filter env toevoegen?
-    /*
-     * function setupRoutingGraph() {
-  var context = new AudioContext();
 
-  // Create the low frequency oscillator that supplies the modulation signal
-  var lfo = context.createOscillator();
-  lfo.frequency.value = 1.0; // LFO rate
-
-  // Create the high frequency oscillator to be modulated
-  var hfo = context.createOscillator();
-  hfo.frequency.value = 440.0;
-
-  // Create a gain node whose gain determines the amplitude of the modulation signal
-  var modulationGain = context.createGain();
-  modulationGain.gain.value = 50; // LFO depth
-
-  // Configure the graph and start the oscillators
-  lfo.connect(modulationGain);
-  modulationGain.connect(hfo.detune);
-  hfo.connect(context.destination);
-  hfo.start(0);
-  lfo.start(0);
-}
-     */
     // lfo
     this.lfo = context.createOscillator();
     this.lfo.frequency.value = parameters.lfoRate;
@@ -76,7 +52,7 @@ var Voice = function(context, frequency, amplitude, parameters, effect_node) {
 
 	this.osc.type = 'square';
 	this.filter.type = 'lowpass';
-	this.filter.frequency.value = this.filterCutoffFreq;
+	this.filter.frequency.value = parameters.filterCutoffFreq;
 
 	this.ampEnv.gain.value = 0.5;
 
@@ -85,7 +61,7 @@ var Voice = function(context, frequency, amplitude, parameters, effect_node) {
 
 Voice.prototype.on = function() {
 	this.osc.start();
-    this.lfo.start(); // moet dat hier?
+    this.lfo.start(); 
 	this.triggerAmpEnvelope();
     this.triggerFilterEnvelope();
 	this.voiceState = 1;
@@ -123,10 +99,16 @@ Voice.prototype.triggerAmpEnvelope = function() {
 Voice.prototype.off = function() {
 	var param = this.ampEnv.gain;
 	var now = this.context.currentTime;
-
+    var param2 = this.filter.frequency;
+    
 	param.cancelScheduledValues(now);
 	param.setValueAtTime(param.value, now);
 	param.exponentialRampToValueAtTime(0.001, now + this.ampEnvReleaseTime);
+    
+    param2.cancelScheduledValues(now);
+    param2.setValueAtTime(param2.value, now);
+    param2.exponentialRampToValueAtTime(this.filterCutoffFreq, now + this.filterEnvReleaseTime);
+    
 	this.osc.stop(now + this.ampEnvReleaseTime);
 };
 
