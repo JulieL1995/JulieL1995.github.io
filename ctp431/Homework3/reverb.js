@@ -1,11 +1,11 @@
 var Reverb = function(context, parameters, delay) {
 
 	this.context = context;
-    this.input = context.createGain();
+   // this.input = context.createGain();
     
     // create nodes
     var reverb = context.createConvolver();
-    var myBuffer;
+    //var myBuffer;
     var request = new XMLHttpRequest();
     request.open("GET", "./Homework3/cathedral.mp3", true);
     request.responseType = "arraybuffer";
@@ -24,10 +24,10 @@ var Reverb = function(context, parameters, delay) {
     this.wetGain = context.createGain();
     
     // connect
-    delay.wetGain.connect(this.input);
-    //delay.dryGain.connect(this.input);
-    this.input.connect(reverb);
-  /*  this.reverb.connect(this.wetGain);
+    delay.wetGain.connect(reverb);
+    delay.dryGain.connect(reverb);
+    //this.input.connect(reverb);
+    reverb.connect(this.wetGain);
     delay.wetGain.connect(this.dryGain);
     delay.dryGain.connect(this.dryGain);
     
@@ -35,9 +35,9 @@ var Reverb = function(context, parameters, delay) {
     this.dryGain.gain.value = 1 - parameters.reverbWetDry;
     
     this.dryGain.connect(this.context.destination);
-	this.wetGain.connect(this.context.destination);*/
+	this.wetGain.connect(this.context.destination);
   
-    reverb.connect(this.context.destination);
+   // reverb.connect(this.context.destination);
 
 	this.parameters = parameters;
 }
