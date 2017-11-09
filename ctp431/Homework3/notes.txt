@@ -1,0 +1,37 @@
+his is what happens with the filter during the lifecycle of a sound:
+We are assuming an ADSR envelope. http://en.wikipedia.org/wiki/ADSR_envelope
+
+The filter initially (when the key gets depressed) is set to its cutoff frequency (let's call it fC).
+It then moves (rises or falls) depending on the envelope depth (let's call it dp for now) to a "full" value of fC+dp. dp can be positive (initially rising), zero (no envelope modulation of the filter) or negative (initially falling).
+I'm not sure about negative env amounts but at least these can be achieved by use of the mod matrix.
+The time that is needed to reach the apex is the attack time A.
+Next the filter closes (or opens in the case of negative dp) to the sustain point (this is fC+dp*S). The time to reach the sustain point is the decay time D.
+After the key is released the filter returns to fC which takes the release time R.
+Now short: (for positive/negative dp)
+- filter starts at fC
+- rises/falls to fC+dp during the time of A
+- falls/rises to fC+dp*S during the time of D
+- stays on that level until key is released
+- falls/rises to fC during the time of R
+
+You are mostly right except for this is not about the balance between filtered and unfiltered sound. We're talking about rising and falling cutoff frequency. Not that the Virus couldn't use its envelopes for modulating filter balance but when speaking of the filter envelope one has cutoff modulation in mind.
+After the end of the filter decay phase there won't be "unfiltered" sound but sound that has its filter open to exactly the degree that you dialed in using the cutoff knob.
+
+Maybe somebody else can explain this more accurately and less mathematical.
+
+stay tuned
+HiEnergy
+
+
+
+Envelope Depth?
+
+Attack: cutoff freq -> cutoff freq + depth (naar fully open position)
+Decay : cutoff freq -> sustain
+release : sustain -> cutoff freq
+
+convolution
+
+createConvolver
+
+convolver -> buffer = audiobuffer met impulse response (da we van diene site moeten halen)
