@@ -11,11 +11,15 @@ var Reverb = function(context, parameters, delay) {
     request.responseType = "arraybuffer";
     request.onload = function() {
         context.decodeAudioData( request.response, 
-            function(buffer) { myBuffer = buffer; } );
+            function(buffer) { 
+                if (!buffer){window.alert("problem with buffer");}
+                myBuffer = buffer; 
+                
+            } );
     }
     request.send();
     this.reverb.buffer = myBuffer;
-    if (!myBuffer){window.alert("problem with buffer");}
+    
     
     this.dryGain = context.createGain();
     this.wetGain = context.createGain();
