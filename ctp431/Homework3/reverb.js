@@ -5,7 +5,7 @@ var Reverb = function(context, parameters, delay) {
     
     // create nodes
     this.reverb = context.createConvolver();
-    var myBuffer = 0;
+    var myBuffer;
     var request = new XMLHttpRequest();
     request.open("GET", "./Homework3/cathedral.wav", true);
     request.responseType = "arraybuffer";
