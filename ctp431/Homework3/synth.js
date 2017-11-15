@@ -75,7 +75,7 @@ Voice.prototype.triggerFilterEnvelope = function() {
     
     // attack
     param.setValueAtTime(0, now);
-    param.linearRampToValueAtTime(0, now + this.filterEnvAttackTime);
+    param.linearRampToValueAtTime(this.filterCutoffFreq, now + this.filterEnvAttackTime);
     
     // decay
     param.linearRampToValueAtTime(this.filterCutoffFreq * this.filterEnvSustainLevel, now + this.filterEnvAttackTime + this.filterEnvDecayTime);
