@@ -107,7 +107,7 @@ Voice.prototype.off = function() {
     
     param2.cancelScheduledValues(now);
     param2.setValueAtTime(param2.value, now);
-    param2.exponentialRampToValueAtTime(0, now + this.filterEnvReleaseTime);
+    param2.exponentialRampToValueAtTime(0.001, now + this.filterEnvReleaseTime);
     
 	this.osc.stop(now + this.ampEnvReleaseTime);
 };
