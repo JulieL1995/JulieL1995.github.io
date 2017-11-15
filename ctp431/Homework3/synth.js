@@ -74,11 +74,11 @@ Voice.prototype.triggerFilterEnvelope = function() {
     param.cancelScheduledValues(now);
     
     // attack
-    param.setValueAtTime(this.filterCutoffFreq, now);
-    param.linearRampToValueAtTime(10000, now + this.filterEnvAttackTime);
+    param.setValueAtTime(0, now);
+    param.linearRampToValueAtTime(0, now + this.filterEnvAttackTime);
     
     // decay
-    param.linearRampToValueAtTime(this.filterCutoffFreq + (10000 - this.filterCutoffFreq) * this.filterEnvSustainLevel, now + this.filterEnvAttackTime + this.filterEnvDecayTime);
+    param.linearRampToValueAtTime(this.filterCutoffFreq * this.filterEnvSustainLevel, now + this.filterEnvAttackTime + this.filterEnvDecayTime);
     
 }
 
@@ -107,7 +107,7 @@ Voice.prototype.off = function() {
     
     param2.cancelScheduledValues(now);
     param2.setValueAtTime(param2.value, now);
-    param2.exponentialRampToValueAtTime(this.filterCutoffFreq, now + this.filterEnvReleaseTime);
+    param2.exponentialRampToValueAtTime(0, now + this.filterEnvReleaseTime);
     
 	this.osc.stop(now + this.ampEnvReleaseTime);
 };
