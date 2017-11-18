@@ -19,11 +19,11 @@ var speed = 1000;
 var song_is_playing = false;
 
 function preload() {
-    bass = loadSound("samples/bass.wav");
-    tenor = loadSound("samples/tenor.wav");
+    bass = loadSound("Final/samples/bass.wav");
+    tenor = loadSound("Final/samples/tenor.wav");
     
     for (var i = 0; i < number_of_tones; i++) {
-        tones[i] = loadSound("samples/" + tone_names[i] + ".wav");
+        tones[i] = loadSound("Final/samples/" + tone_names[i] + ".wav");
     }
 }
 
@@ -33,8 +33,8 @@ function setup() {
     c.parent("canvas");
     
     frameRate(30);
-    bagpipes_img = loadImage("./bagpipes.png");
-    smoke_img = loadImage("./smoke.png");
+    bagpipes_img = loadImage("Final/bagpipes.png");
+    smoke_img = loadImage("Final/smoke.png");
     
     b_slider = createSlider(0, 100, 0);
     t_slider = createSlider(0, 100, 0);
@@ -104,6 +104,8 @@ function setup() {
     s_slider = createSlider(100, 2000, map(1000, 2000, 100, 100, 2000));
     s_slider.position(1000, 770);
     
+    var home_link = createA("index.html", "<img src=\"Homework3/home.png\" alt=\"HOME\" style=\"width: 50px; height:50px\">");
+    home_link.position(10, 10);
         
 }
 
@@ -111,6 +113,7 @@ function draw() {
     background(color(255));
     
     textSize(20);
+    fill(color(0));
     text("Final Project", 200, 50);
     
     textSize(14);
@@ -122,9 +125,12 @@ function draw() {
     ellipse(50, 150, 15, 15);
     text(" = closed hole", 65, 155);
     fill(color(255));
+    stroke(0);
     ellipse(50, 200, 15, 15);
     fill(color(0));
+    noStroke();
     text(" = open hole", 65, 205);
+    
     
     text("Bass Bourdon", b_slider.x - 100, 265);
     text("Tenor Bourdon", t_slider.x - 100, 315);
@@ -151,9 +157,6 @@ function draw() {
     
     // bourdon volume drawing
     drawVolume(b_slider.value(), t_slider.value(), c_slider.value());
-    
-
-    
 }
 
 function playNewTone(index){
