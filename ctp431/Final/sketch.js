@@ -29,7 +29,7 @@ function preload() {
 
 
 function setup() {
-    var c = createCanvas(1500, 1000);
+    var c = createCanvas(1500, 1100);
     c.parent("canvas");
     
     frameRate(30);
@@ -132,8 +132,8 @@ function draw() {
     text(" = open hole", 65, 205);
     
     
-    text("Bass Bourdon", b_slider.x - 100, 265);
-    text("Tenor Bourdon", t_slider.x - 100, 315);
+    text("Bass Drone", b_slider.x - 100, 265);
+    text("Tenor Drone", t_slider.x - 100, 315);
     text("Chanter", c_slider.x - 100, 365);
     
     text("Speed", s_slider.x - 40, 785);
