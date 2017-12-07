@@ -220,6 +220,7 @@ function draw() {
             
         translate(137, 300);
         if (rect_c) rect(0, 0, 25, 390);
+        strokeWeight(1);
     }
 }
 
