@@ -36,7 +36,7 @@ function preload() {
 
 
 function setup() {
-    var c = createCanvas(1500, 1100);
+    var c = createCanvas(1800, 1100);
     c.parent("canvas");
     
     frameRate(30);
