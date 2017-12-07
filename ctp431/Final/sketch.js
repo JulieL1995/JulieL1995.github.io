@@ -158,6 +158,7 @@ function draw() {
     
     fill(color(0));
     ellipse(50, 150, 15, 15);
+    strokeWeight(1);
     text(" = closed hole", 65, 155);
     fill(color(255));
     stroke(0);
