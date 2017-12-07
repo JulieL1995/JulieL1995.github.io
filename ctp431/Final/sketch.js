@@ -36,7 +36,7 @@ function preload() {
 
 
 function setup() {
-    var c = createCanvas(1800, 1000);
+    var c = createCanvas(1500, 1100);
     c.parent("canvas");
     
     frameRate(30);
@@ -74,7 +74,7 @@ function setup() {
     // tones
     for (var i = 0; i < number_of_tones; i++) {
             // tone buttons
-            var button = createButton(tone_names[i] + " (" + tone_keys[i] + ")");
+            var button = createButton(tone_names[i]);
             button.position(650, 400 + i*50);
             button.size(95, 50);
             button.style("background-color", tone_colors[i]);
@@ -120,9 +120,9 @@ function setup() {
     s_slider = createSlider(100, 2000, map(1000, 2000, 100, 100, 2000));
     s_slider.position(1000, 770);
     
-   var home_link = createA("index.html", "<img src=\"Homework3/home.png\" alt=\"HOME\" style=\"width: 50px; height:50px\">");
-   home_link.position(10, 10);
-    
+    var home_link = createA("index.html", "<img src=\"Homework3/home.png\" alt=\"HOME\" style=\"width: 50px; height:50px\">");
+    home_link.position(10, 10);
+        
     // fft
     fft = new p5.FFT();
 }
@@ -131,11 +131,12 @@ function draw() {
     background(color(255));
     
     textSize(20);
+    fill(color(0));
     text("Final Project", 200, 50);
     
     textSize(14);
     // UI setup
-   if (intro) {
+    if (intro) {
         if (!blow.isPlaying()) {
             if (time < 3 ) {
                 time++;
@@ -159,12 +160,15 @@ function draw() {
     ellipse(50, 150, 15, 15);
     text(" = closed hole", 65, 155);
     fill(color(255));
+    stroke(0);
     ellipse(50, 200, 15, 15);
     fill(color(0));
+    noStroke();
     text(" = open hole", 65, 205);
     
-    text("Bass Bourdon", b_slider.x - 100, 265);
-    text("Tenor Bourdon", t_slider.x - 100, 315);
+    
+    text("Bass Drone", b_slider.x - 100, 265);
+    text("Tenor Drone", t_slider.x - 100, 315);
     text("Chanter", c_slider.x - 100, 365);
     
     text("Speed", s_slider.x - 40, 785);
@@ -177,7 +181,7 @@ function draw() {
         if (current_tone) 
             current_tone.setVolume(c_slider.value() / 100);
     }
-
+    
     // tone settings
     noStroke();
     for (var i = 0; i < 7; i++) {
@@ -219,7 +223,9 @@ function draw() {
     }
 }
 
+
 function keyPressed(){
+    if (intro) return;
         for(var i = 0; i < number_of_tones; i++) {
             if (keyCode === tone_keycodes[i]) {
                 playNewTone(i);
