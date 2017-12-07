@@ -1,14 +1,17 @@
-var bagpipes_img, b_slider, t_slider, smoke_img, c_slider, note_div, s_slider;
-var bass, tenor;
+var bagpipes_img, b_slider, t_slider, smoke_img, c_slider, note_div, s_slider, intro_img;
+var bass, tenor, fft, blow;
 var c_volume = 0.0;
 var number_of_tones = 8;
 var tone_names = ["G1", "A1", "B1", "C1", "D1", "E1", "F1", "G2"];
+var tone_keys = ["s", "d", "f", "g", "h", "j", "k", "l"];
+var tone_keycodes = [83, 68, 70, 71, 72, 74, 75, 76];
 var tones = [];
 var current_tone, current_tone_index;
 var tone_colors;
 var tone_hole_positions = [];
 var tone_settings = [];
 var inputs = [];
+var rect_b, rect_c, rect_t = false;
 
 var song = [];
 var song_tones = [];
@@ -17,10 +20,14 @@ var song_divs = [];
 var song_length = 0;
 var speed = 1000;
 var song_is_playing = false;
+var intro = true;
+var size_i = 100;
+var time = 0;
 
 function preload() {
     bass = loadSound("Final/samples/bass.wav");
     tenor = loadSound("Final/samples/tenor.wav");
+    blow = loadSound("Final/soundeffect.mp3");
     
     for (var i = 0; i < number_of_tones; i++) {
         tones[i] = loadSound("Final/samples/" + tone_names[i] + ".wav");
@@ -35,6 +42,7 @@ function setup() {
     frameRate(30);
     bagpipes_img = loadImage("Final/bagpipes.png");
     smoke_img = loadImage("Final/smoke.png");
+    intro_img = loadImage("Final/intro.png");
     
     b_slider = createSlider(0, 100, 0);
     t_slider = createSlider(0, 100, 0);
@@ -43,6 +51,14 @@ function setup() {
     b_slider.position(750, 250);
     t_slider.position(750, 300);
     c_slider.position(750, 350);
+    
+    b_slider.mouseOver(function(){rect_b = true;});
+    t_slider.mouseOver(function(){rect_t = true;});
+    c_slider.mouseOver(function(){rect_c = true;});
+    
+    b_slider.mouseOut(function(){rect_b = false;});
+    t_slider.mouseOut(function(){rect_t = false;});
+    c_slider.mouseOut(function(){rect_c = false;});
     
     bass.setVolume(0.0);
     tenor.setVolume(0.0);
@@ -107,6 +123,8 @@ function setup() {
     var home_link = createA("index.html", "<img src=\"Homework3/home.png\" alt=\"HOME\" style=\"width: 50px; height:50px\">");
     home_link.position(10, 10);
         
+    // fft
+    fft = new p5.FFT();
 }
 
 function draw() {
@@ -118,8 +136,25 @@ function draw() {
     
     textSize(14);
     // UI setup
-    imageMode(CORNER);
-    image(bagpipes_img, 100, 200, 500, 700);
+    if (intro) {
+        if (!blow.isPlaying()) {
+            if (time < 3 ) {
+                time++;
+                blow.play();
+            }
+            else {
+                intro = false;
+            }
+        }
+        imageMode(CENTER);
+        size_i += 2;
+        image(intro_img, 350, 450, size_i, size_i);
+        text("blowing up the bagpipe...", 270, 300);
+    }
+    else {
+        imageMode(CORNER);
+        image(bagpipes_img, 100, 200, 500, 700);
+    }
     
     fill(color(0));
     ellipse(50, 150, 15, 15);
@@ -140,10 +175,12 @@ function draw() {
     speed = map(s_slider.value(), 100, 2000, 2000, 100);
     
     // set volume different parts
-    bass.setVolume(b_slider.value() / 100);
-    tenor.setVolume(t_slider.value() / 100);
-    if (current_tone) 
-        current_tone.setVolume(c_slider.value() / 100);
+    if (!intro) {
+        bass.setVolume(b_slider.value() / 100);
+        tenor.setVolume(t_slider.value() / 100);
+        if (current_tone) 
+            current_tone.setVolume(c_slider.value() / 100);
+    }
     
     // tone settings
     noStroke();
@@ -155,12 +192,49 @@ function draw() {
         ellipse(405 - i*tone_hole_positions[i+1][0], 645 + i*tone_hole_positions[i+1][1], 7, 7);
     }
     
-    // bourdon volume drawing
-    drawVolume(b_slider.value(), t_slider.value(), c_slider.value());
+    if (!intro) {
+        // bourdon volume drawing
+        drawVolume(b_slider.value(), t_slider.value(), c_slider.value());
+    
+        // frequency spectrum
+        colorMode(HSB);
+        var spectrum = fft.analyze();
+        for (var i = 0; i < spectrum.length; i++){
+            fill(map(i, 0, spectrum.length, 0, 255), 255, 255);
+            var y = map(i, 0, spectrum.length, 0, height);
+            var w = map(spectrum[i], 0, 255, 0, 300);
+            rect(1500,y, w, height / spectrum.length )
+        }
+        colorMode(RGB);
+        
+        // rectangles for hover
+        noFill();
+        stroke(0);
+        strokeWeight(4);
+        translate(370, 290);
+        rotate(PI/8.0);
+        if (rect_t) rect(0, 0, 20, 400);
+        
+        translate(20, -105);
+        if (rect_b) rect(0, 0, 20, 505);
+            
+        translate(137, 300);
+        if (rect_c) rect(0, 0, 25, 390);
+    }
+}
+
+
+function keyPressed(){
+    if (intro) return;
+        for(var i = 0; i < number_of_tones; i++) {
+            if (keyCode === tone_keycodes[i]) {
+                playNewTone(i);
+            }
+        }
 }
 
 function playNewTone(index){
-    if (!song_is_playing) {
+    if (!intro && !song_is_playing) {
         current_tone_index = index;
         if (current_tone) {
             current_tone.stop();
@@ -173,6 +247,7 @@ function playNewTone(index){
 
 // add a new tone to the song
 function addTone(index){
+    if (intro) return;
     if (inputs[index].value() > 0) {
         var new_div = createDiv(tone_names[index]);
         new_div.size(inputs[index].value() * 100, 50);
@@ -202,7 +277,7 @@ function addTone(index){
 
 // play the song made by the user
 function playSong() {
-    if (song_length > 0 && !song_is_playing) {
+    if (!intro && song_length > 0 && !song_is_playing) {
         song_is_playing = true;
         select("#note_div").elt.scrollLeft = 0;
         var current_tone_div = 0;
