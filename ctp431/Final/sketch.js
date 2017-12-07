@@ -74,7 +74,7 @@ function setup() {
     // tones
     for (var i = 0; i < number_of_tones; i++) {
             // tone buttons
-            var button = createButton(tone_names[i]);
+            var button = createButton(tone_names[i] + " (" + tone_keys[i] + ")");
             button.position(650, 400 + i*50);
             button.size(95, 50);
             button.style("background-color", tone_colors[i]);
