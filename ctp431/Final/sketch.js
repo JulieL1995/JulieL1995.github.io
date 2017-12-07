@@ -129,7 +129,7 @@ function setup() {
 
 function draw() {
     background(color(255));
-    
+    strokeWeight(1);
     textSize(20);
     fill(color(0));
     text("Final Project", 200, 50);
