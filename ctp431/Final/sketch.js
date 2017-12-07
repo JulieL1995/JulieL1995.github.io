@@ -120,8 +120,8 @@ function setup() {
     s_slider = createSlider(100, 2000, map(1000, 2000, 100, 100, 2000));
     s_slider.position(1000, 770);
     
-    var home_link = createA("", "Home");
-    home_link.position(50, 30);
+   var home_link = createA("index.html", "<img src=\"Homework3/home.png\" alt=\"HOME\" style=\"width: 50px; height:50px\">");
+   home_link.position(10, 10);
     
     // fft
     fft = new p5.FFT();
