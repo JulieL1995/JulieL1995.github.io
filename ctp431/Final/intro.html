@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="shortcut icon" href="grammy.png">
+    <title>Julie's Music &#38; Audio Computing Page</title>
+    <meta name="description" content="Website for Music and Audio Computing course">
+    <meta name="author" content="Julie Lelong">
+    
+    <!-- CSSMap STYLESHEET - EUROPE -->
+    <link rel="stylesheet" type="text/css" href="cssmap-europe/cssmap-europe/cssmap-europe.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="intro.css" media="screen" />
+  </head>
+
+  <body>
+  <img src="sound.png" onclick="toggleMusic(1)" id="soundon">
+  <img src="nosound.png" onclick="toggleMusic(0)" id="soundoff">
+    <!-- CSSMap - Europe -->
+<div id="map-europe">
+ <ul class="europe">
+  <li class="eu1" onmouseover="displayInfoB(0)"><a href="#albania">Albania</a></li>
+  <li class="eu3" onmouseover="displayInfoB(1)"><a href="#austria">Austria</a></li>
+  <li class="eu4" onmouseover="displayInfoB(2)"><a href="#belarus">Belarus</a></li>
+  <li class="eu5" onmouseover="displayInfoB(3)"><a href="#belgium">Belgium</a></li>
+  <li class="eu7" onmouseover="displayInfoB(4)"><a href="#bulgaria">Bulgaria</a></li>
+  <li class="eu8" onmouseover="displayInfoB(5)"><a href="#croatia">Croatia</a></li>
+  <li class="eu12" onmouseover="displayInfoB(6)"><a href="#estonia">Estonia</a></li>
+  <li class="eu13" onmouseover="displayInfoB(7)"><a href="#france">France</a></li>
+  <li class="eu15" onmouseover="displayInfoB(8)"><a href="#georgia">Georgia</a></li>
+  <li class="eu16" onmouseover="displayInfoB(9)"><a href="#germany">Germany</a></li>
+  <li class="eu17" onmouseover="displayInfoB(10)"><a href="#greece">Greece</a></li>
+  <li class="eu18" onmouseover="displayInfoB(11)"><a href="#hungary">Hungary</a></li>
+  <li class="eu20" onmouseover="displayInfoB(12)"><a href="#ireland">Ireland</a></li>
+  <li class="eu22" onmouseover="displayInfoB(13)"><a href="#italy">Italy</a></li>
+  <li class="eu28" onmouseover="displayInfoB(14)"><a href="#macedonia">Macedonia <abbr title="The Former Yugoslav Republic of Macedonia">(F.Y.R.O.M.)</abbr></a></li>
+  <li class="eu29" onmouseover="displayInfoB(15)"><a href="#malta">Malta</a></li>
+  <li class="eu33" onmouseover="displayInfoB(16)"><a href="final.html">The Netherlands</a></li>
+  <li class="eu35" onmouseover="displayInfoB(17)"><a href="#poland">Poland</a></li>
+  <li class="eu36" onmouseover="displayInfoB(18)"><a href="#portugal">Portugal</a></li>
+  <li class="eu37" onmouseover="displayInfoB(19)"><a href="#romania">Romania</a></li>
+  <li class="eu38" onmouseover="displayInfoB(20)"><a href="#russian-federation">Russian Federation</a></li>
+  <li class="eu39" onmouseover="displayInfoB(21)"><a href="#serbia">Serbia</a></li>
+  <li class="eu42" onmouseover="displayInfoB(22)"><a href="#spain">Spain</a></li>
+  <li class="eu43" onmouseover="displayInfoB(23)"><a href="#sweden">Sweden</a></li>
+  <li class="eu45" onmouseover="displayInfoB(24)"><a href="#turkey">Turkey</a></li>
+  <li class="eu48" onmouseover="displayInfoB(25)"><a href="#england">England</a></li>
+  <li class="eu51" onmouseover="displayInfoB(26)"><a href="#scotland">Scotland</a></li>
+  <li class="eu52" onmouseover="displayInfoB(27)"><a href="#wales">Wales</a></li>
+
+ </ul>
+</div>
+
+<div id="description"></div>
+<!-- END OF THE CSSMap - Europe -->
+  
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <!-- CSSMap SCRIPT -->
+    <script type="text/javascript" src="cssmap-europe/jquery.cssmap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            // CSSMap;
+            $("#map-europe").CSSMap({
+                "size": 960
+            });
+            // END OF THE CSSMap;
+
+        }); 
+    </script>
+    <script src="../Homework2/p5.min.js"></script>
+    <script src="../addons/p5.dom.min.js"></script>
+    <script src="../addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="intro.js"></script>
+  </body>
+</html>

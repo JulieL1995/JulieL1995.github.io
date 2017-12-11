@@ -1,0 +1,27 @@
+#description {
+    position: absolute;
+    top: 10px;
+    left: 1050px;
+    margin-right: 10px;
+} 
+
+#map-europe {
+    position: absolute;
+    left: 50px;
+}
+
+#soundon {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px; 
+    left: 10px;
+}
+
+#soundoff {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}

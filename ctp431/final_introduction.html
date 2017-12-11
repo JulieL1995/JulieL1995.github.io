@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="shortcut icon" href="grammy.png">
+    <title>Julie's Music &#38; Audio Computing Page</title>
+    <meta name="description" content="Website for Music and Audio Computing course">
+    <meta name="author" content="Julie Lelong">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <link href="costum.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">test</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://mac.kaist.ac.kr/~juhan/ctp431/" target="blank"><span class="label label-default">CTP431 Fall 2017</span></a>
+        </div>
+        
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+            <li class=><a href="./Final/intro.html">Final Application</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+        <h1>Final Project: Bagpipes Generator <a class="btn btn-default" href="./Final/intro.html" role="button">Final Application</a></h1>
+        <h2>Concept</h2>
+        <p>
+            This application ?? to introduce people to the bagpipes, a folk instrument found across Europe and beyond. The first part of the application is a map of Europe. 
+            While hovering with your mouse over the map, information about the different types of bagpipes of different countries will appear. Also, when your mouse is hovering over
+            a country, you will hear an example of music from a bagpipe from that country. The icon of the speaker in the top left corner lets you turn the sound on and off.
+            When you click on The Netherlands on the map, you can move to the second part of the application.
+        </p>
+        <p>
+            At the second part of the application you can get to know more about the type of bagpipe from The Netherlands and Belgium: the Flemish Bagpipe. At the top there are three sliders. One for the bass drone, one for the
+            tenor drone and one for the chanter. These sliders control the volume of the ?? parts of the bagpipe. On the image you can see the volume as little smoke clouds that will appear if the bagpipe is playing.
+            The colored buttons let you play a particular note. When pressing one of those buttons, the finger placement that is necessary to play that note will appear on the image. You can also play these notes by pressing
+            the correct button on the keyboard. Which key you need to press for each note is shown between brackets on each button. 
+        </p>
+        <p>
+            Next to these buttons there is an input field and an "add"-button. This is to create a song. In the input field you can give an integer number which represents the length of the note you want to add to the song. After that you click "add". You will see that the note is added in the rectangle at the bottom of the page. You can click "play" to play the song and "stop" to stop it. "reset" will remove everything that was added to the song and set it back to the default position. The slider on top of the box let you adjust the speed of the playback of the song. 
+        </p>
+        <p>
+            When the bagpipe is playing, you will see that the frequency spectrum will appear at the right side of the screen. This is the frequency spectrum of the total output
+            of the application.
+        </p>
+        <h2>Implementation</h2>
+        <p>
+            For the implementation of the map of europe, I used a plugin from <a href="https://cssmapsplugin.com/">cssmapsplugin</a>. This plugin already has a map with the hover functionality. The only thing I still needed to implement,
+            was the "onmouseover"-function. To play the music when hovering over the map, I used <a href="https://p5js.org/">p5.js</a> to load and play the sound. 
+        </p>
+        <p>
+            For the second part of the application I also used <a href="https://p5js.org/">p5.js</a> to load and play the different samples, to do FFT-analysis for the frequency spectrum, and to make the GUI.
+        </p>
+        <p>
+            The samples used in the second part of the application are real samples of a Flemish bagpipe, recorded by my father, who plays the bagpipes. Originally I was planning on using these samples to do FFT-analysis and then 
+            reproduce the sound with oscillators. The result, however, was not nice. That is why I decided to use the real samples instead.
+        </p>
+        <h2>Possible additions</h2>
+        <p>
+            What I first wanted to add in the second part of the application was convolution, using an impulse response of several outside places (because that's where the bagpipes sound the best). However, I had trouble with the 
+            convolver offered by <a href="https://p5js.org/">p5.js</a>. The application never stopped loading when I included a convolver. I first thought that there was a bug in my code, but when I went to look at the examples on the
+            website of <a href="https://p5js.org/">p5.js</a>, I noticed that those examples kept loading too. I concluded that the problem must be <a href="https://p5js.org/">p5.js</a> and not my code, so I didn't include convolution.
+        </p>
+        <p>
+            Another addition is doing the same for the other types of bagpipes from the other countries. That way you could click  on every country and go to a similar application as is now the case for The Netherlands.
+        </p>
+    </div><!-- /.container -->
+    
+    <footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text"> &#169; 2017 Lelong Julie </p>
+        </div>
+    </nav>
+    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
