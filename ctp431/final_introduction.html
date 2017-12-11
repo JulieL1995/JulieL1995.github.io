@@ -46,6 +46,12 @@
 
     <div class="container">
         <h1>Final Project: Bagpipes Generator <a class="btn btn-default" href="./Final/intro.html" role="button" target="blank">Final Application</a></h1>
+        <h2>Introduction</h2>
+        <p>
+          It was quite difficult for me to find an idea for my final project. Eventually I thought that, as a foreigner, this might be 
+          a good opportunity for me to introduce some folk instruments from my country. Since my father plays the bagpipes, I decided to do 
+          this project about the bagpipes. It is loosely based on <a href="https://mynoise.net/NoiseMachines/bagpipesDroneGenerator.php" target="blank">this application</a>.
+        </p>
         <h2>Concept</h2>
         <p>
             This application serves to introduce people to the bagpipes, a folk instrument found across Europe and beyond. The first part of the application is a map of Europe. 
@@ -66,7 +72,7 @@
             When the bagpipe is playing, you will see that the frequency spectrum will appear at the right side of the screen. This is the frequency spectrum of the total output
             of the application.
         </p>
-        <h2>Implementation</h2>
+        <h2>Method</h2>
         <p>
             For the implementation of the map of europe, I used a plugin from <a href="https://cssmapsplugin.com/">cssmapsplugin</a>. This plugin already has a map with the hover functionality. The only thing I still needed to implement,
             was the "onmouseover"-function. To play the music when hovering over the map, I used <a href="https://p5js.org/">p5.js</a> to load and play the sound. 
@@ -74,18 +80,18 @@
         <p>
             For the second part of the application I also used <a href="https://p5js.org/">p5.js</a> to load and play the different samples, to do FFT-analysis for the frequency spectrum, and to make the GUI.
         </p>
+        <h2>Discussion</h2>
         <p>
             The samples used in the second part of the application are real samples of a Flemish bagpipe, recorded by my father, who plays the bagpipes. Originally I was planning on using these samples to do FFT-analysis and then 
             reproduce the sound with oscillators. The result, however, was not nice. That is why I decided to use the real samples instead.
         </p>
-        <h2>Possible additions</h2>
         <p>
             What I first wanted to add in the second part of the application was convolution, using an impulse response of several outside places (because that's where the bagpipes sound the best). However, I had trouble with the 
             convolver offered by <a href="https://p5js.org/">p5.js</a>. The application never stopped loading when I included a convolver. I first thought that there was a bug in my code, but when I went to look at the examples on the
             website of <a href="https://p5js.org/">p5.js</a>, I noticed that those examples kept loading too. I concluded that the problem must be <a href="https://p5js.org/">p5.js</a> and not my code, so I didn't include convolution.
         </p>
         <p>
-            Another addition is doing the same for the other types of bagpipes from the other countries. That way you could click  on every country and go to a similar application as is now the case for The Netherlands.
+            Another addition that can be made is doing the same for the other types of bagpipes from the other countries. That way you could click  on every country on the map and go to a similar application as is now the case for The Netherlands.
         </p>
     </div><!-- /.container -->
     
