@@ -248,7 +248,7 @@ var Hangman = function () {
         }
       }
         //answer!
-      else if(realinput===word){
+      else if(realinput.toLowerCase()===word.toLowerCase()){
         for(var j=0;j<word.length;++j){
            discovered[j] = 1;
         }
@@ -339,10 +339,14 @@ var Hangman = function () {
     
     stroke(0,0,0);
     fill(255,255,255);
-    _Wtextsize = _Wtextsize/nowStage;
+    if(life===0) _Wtextsize = _Wtextsize/goStage;
+    else {
+      _Wtextsize = _Wtextsize/nowStage;
+    }
+    
     textSize(_Wtextsize);
     for(var j=0;j<word.length;++j){
-      if(discovered[j]==1)
+      if(discovered[j]==1 || life===0)
         text(word[j], _WposX+j*(_Wtextsize*1.3), _WposY);
       text('_', _WposX+j*(_Wtextsize*1.3), _WposY+_Wtextsize*0.08);
     }
@@ -520,7 +524,6 @@ function setup() {
 }
 
 function draw() {
-  print('('+windowWidth+', '+windowHeight+')')
   
   if (myHangman.getOff()===0){
     background(0,0,0);
@@ -556,8 +559,4 @@ function keyPressed() {
   if (keyCode === BACKSPACE) {
     myHangman.del();
   }
-}
-
-function mouseClicked() {
-  print('('+mouseX+', '+mouseY+')')
 }
