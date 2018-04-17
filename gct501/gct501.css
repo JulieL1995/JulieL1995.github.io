@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+}
+
+.btn {
+    padding: 5px;
+    background: rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 2px;
+    outline: none;
+    width:250px;
+    height:40px;
+    font-size:15px;
+    color: white;
+} 
+
+p {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -125px;
+}
