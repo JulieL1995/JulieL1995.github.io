@@ -53,21 +53,30 @@ var Hangman = function () {
   }
   this.announce =function(){
     this.newline();
-    this.add_admin('*=================================*');
+    this.add_admin('     ===============');
+    //this.add_admin('*=================================*');
     this.newline();
-    this.add_admin('  _    _           _   _  ____ __ __            _   _ ');
+    this.add_admin('      || H A N G M A N ||')
+    //this.add_admin('  _    _          _   _  _____ __  __          _   _ ');
+    //this.add_admin('  _    _           _   _  ____ __ __            _   _ ');
+    //this.newline();
+    //this.add_admin(' | |  | |   /\   | \ | |/ ____|  \/  |   /\   | \ | |');
+    //this.add_admin(' | |    | |   /\\     | \\  |  |/  ___|   \\/   |    /\\     | \\ |   |');
+    //this.newline();
+    //this.add_admin(' | |__| |  /  \  |  \| | |  __| \  / |  /  \  |  \| |');
+    //this.add_admin(' | |__| |  /  \\    |   \\|  | |   __|  \\  /  |   /  \\    |  \\|   |');
+    //this.newline();
+    //this.add_admin(' |  __  | / /\ \ | . ` | | |_ | |\/| | / /\ \ | . ` |');
+    //this.add_admin(' |  __  | / /\\ \\   |  . `  |  | |_  |  |\\/|  |  / /\\ \\   | . `  |');
+    //this.newline();
+    //this.add_admin(' | |  | |/ ____ \| |\  | |__| | |  | |/ ____ \| |\  |');
+    //this.add_admin(' |  |  |  |/ __  \\ |  |\\   |  |__| |  |  |  | / __  \\ |  |\\   |');
+    //this.newline();
+    //this.add_admin(' |_|  |_/_/    \_\_| \_|\_____|_|  |_/_/    \_\_| \_|');
+    //this.add_admin(' |_|  |_/_/    \\_\\_| \\_|\\____|_|  |_/_/     \\_\\_| \\_|');
     this.newline();
-    this.add_admin(' | |    | |   /\\     | \\  |  |/  ___|   \\/   |    /\\     | \\ |   |');
+    this.add_admin('     ===============');
     this.newline();
-    this.add_admin(' | |__| |  /  \\    |   \\|  | |   __|  \\  /  |   /  \\    |  \\|   |');
-    this.newline();
-    this.add_admin(' |  __  | / /\\ \\   |  . `  |  | |_  |  |\\/|  |  / /\\ \\   | . `  |');
-    this.newline();
-    this.add_admin(' |  |  |  |/ __  \\ |  |\\   |  |__| |  |  |  | / __  \\ |  |\\   |');
-    this.newline();
-    this.add_admin(' |_|  |_/_/    \\_\\_| \\_|\\____|_|  |_/_/     \\_\\_| \\_|');
-    this.newline();
-    this.add_admin('*=================================*');
     this.newline();
     this.add_admin('-----------------------------------');
     this.newline();
