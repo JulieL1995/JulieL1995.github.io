@@ -140,33 +140,39 @@ function startGame() {
 
 function gameIsOver() {  
     gameOver = true;
-    if (lives > 0) {
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].hide();
-        }
-        
-        var button =  createButton("Try again");
-        button.position(width/2 - 100, height/2);
-        button.mouseClicked(function() {
-            lost = false;
-            gameOver = false;
-            players_turn = false;
-            button.remove();
-            startGame();
-        });
-    }
-    else {
+    if (level >= songs.length) {
         listenSound = true;
-        
         for (var i = 0; i < buttons.length; i++) {
             buttons[i].remove();
         }
+    }
+    else {
+        if (lives > 0) {
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].hide();
+            }
         
-        var button =  createButton("Try again");
-        button.position(width/2 - 100, height/2);
-        button.mouseClicked(function() {
-            location.href = '../start.html';
-        });
+            var button =  createButton("Try again");
+            button.position(width/2 - 100, height/2);
+            button.mouseClicked(function() {
+                lost = false;
+                gameOver = false;
+                players_turn = false;
+                button.remove();
+                startGame();
+            });
+        }
+        else {
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].remove();
+            }
+        
+            var button =  createButton("Try again");
+            button.position(width/2 - 100, height/2);
+            button.mouseClicked(function() {
+                location.href = '../start.html';
+            });
+        }
     }
 }
 
