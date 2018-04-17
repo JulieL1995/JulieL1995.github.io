@@ -39,36 +39,50 @@ var Hangman = function () {
     requestHint = 0;
   }
   this.announce2 = function(){
-    myHangman.add_admin('====================');
-    myHangman.newline();
-    myHangman.add_admin('Hangman game is ');
-    myHangman.newline();
-    myHangman.add_admin(' player guess answer');
-    myHangman.newline();
-    myHangman.add_admin('  by suggesting letters');
-    myHangman.newline();
-    myHangman.add_admin('====================');
-    myHangman.newline();
+    this.add_admin('====================');
+    this.newline();
+    this.add_admin('Hangman game is ');
+    this.newline();
+    this.add_admin('   player guess answer');
+    this.newline();
+    this.add_admin('      by suggesting letters');
+    this.newline();
+    this.add_admin('====================');
+    this.newline();
     
   }
   this.announce =function(){
-    myHangman.add_admin('*====================*');
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.add_admin('Welcome!!');
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.add_admin('If you want to start game.');
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.add_admin('Write: \'play hangman\'');
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.add_admin('*====================*');
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.newline();
-    myHangman.add_admin('>> ');
+    this.newline();
+    this.add_admin('*=================================*');
+    this.newline();
+    this.add_admin('  _    _           _   _  ____ __ __            _   _ ');
+    this.newline();
+    this.add_admin(' | |    | |   /\\     | \\  |  |/  ___|   \\/   |    /\\     | \\ |   |');
+    this.newline();
+    this.add_admin(' | |__| |  /  \\    |   \\|  | |   __|  \\  /  |   /  \\    |  \\|   |');
+    this.newline();
+    this.add_admin(' |  __  | / /\\ \\   |  . `  |  | |_  |  |\\/|  |  / /\\ \\   | . `  |');
+    this.newline();
+    this.add_admin(' |  |  |  |/ __  \\ |  |\\   |  |__| |  |  |  | / __  \\ |  |\\   |');
+    this.newline();
+    this.add_admin(' |_|  |_/_/    \\_\\_| \\_|\\____|_|  |_/_/     \\_\\_| \\_|');
+    this.newline();
+    this.add_admin('*=================================*');
+    this.newline();
+    this.add_admin('-----------------------------------');
+    this.newline();
+    this.add_admin('Welcome to hangman!!');
+    this.newline();
+    this.add_admin('If you want to start game,');
+    this.newline();
+    this.newline();
+    this.add_admin('Write: \'play hangman\'');
+    this.newline();
+    this.add_admin('-----------------------------------');
+    this.newline();
+    this.newline();
+    this.newline();
+    this.add_admin('>> ');
   }
     
   this.command = function(input){
@@ -90,10 +104,10 @@ var Hangman = function () {
         
         break;
       default:
-        myHangman.newline();
-        myHangman.add_admin('\''+realinput+'\' is not recognized as an internal or external command,');
-        myHangman.newline();
-        myHangman.add_admin('operable program or batch file.');
+        this.newline();
+        this.add_admin('\''+realinput+'\' is not recognized as an internal or external command,');
+        this.newline();
+        this.add_admin('operable program or batch file.');
         
         break;
     }
@@ -147,7 +161,7 @@ var Hangman = function () {
             var collect = 0;
             var answerchar = 0;
             for(var i=0;i<word.length;++i){
-              if(word[i]==realinput){
+              if(word[i].toLowerCase()==inputLow){
                 discovered[i] = 1;
                 ++collect;
                 //break;
@@ -193,6 +207,7 @@ var Hangman = function () {
                 this.newline();
                 this.newline();
                 this.add_admin('====================');
+                this.newline();
                 this.add_admin('Add anykey to start stage!');
                 this.newline();
                 this.add_admin('====================');
@@ -204,6 +219,23 @@ var Hangman = function () {
             this.newline();
             this.add_admin('This is alreay used');
           }
+        }
+        else{
+          --life;
+          this.newline();
+          this.add_admin('\''+ realinput +'\' is wrong guess!');
+          if(life ===0){
+              --nowStage;
+              
+              this.newline();
+              this.newline();
+              this.add_admin('====================');
+              this.newline();
+              this.add_admin('Add anykey to start stage!');
+              this.newline();
+              this.add_admin('====================');
+              this.newline();
+          } 
         }
       }
         //answer!
@@ -235,7 +267,7 @@ var Hangman = function () {
               this.newline();
               this.add_admin('The next stage will open');
               this.newline();
-              this.add_admin('Write \'Next Stage\' to go next stage');
+              this.add_admin('Write \'Next Stage\' to go next level');
               this.newline();
               this.add_admin('====================');
               }
@@ -256,6 +288,7 @@ var Hangman = function () {
               this.newline();
               this.newline();
               this.add_admin('====================');
+              this.newline();
               this.add_admin('Add anykey to start stage!');
               this.newline();
               this.add_admin('====================');
@@ -277,7 +310,7 @@ var Hangman = function () {
       return 0;
     
     this.show();
-    this.play_alphabetcollect(1380,250,40);
+    this.play_alphabetcollect(1380*windowWidth/1902,250*windowHeight/936,40*windowWidth/1902);
     this.play_quiz(_word,_hint,_WposX,_WposY,_HposX,_HposY,_Wtextsize,_Htextsize);
     //play_characterimage();
     //play_hint();
@@ -301,7 +334,7 @@ var Hangman = function () {
     textSize(_Wtextsize);
     for(var j=0;j<word.length;++j){
       if(discovered[j]==1)
-        text(word[j].toUpperCase(), _WposX+j*(_Wtextsize*1.3), _WposY);
+        text(word[j], _WposX+j*(_Wtextsize*1.3), _WposY);
       text('_', _WposX+j*(_Wtextsize*1.3), _WposY+_Wtextsize*0.08);
     }
     
@@ -337,7 +370,7 @@ var Hangman = function () {
     return 0;
   }
   this.show = function(){
-    image(img[life], 800, 40,504,432);
+    image(img[life], 800*windowWidth/1902, 40*windowHeight/936,504*windowWidth/1902,432*windowHeight/936);
   }
   this.getOff = function(){
     return off;
@@ -465,7 +498,7 @@ function preload(){
 function setup() {
   //textFont('Georgia');
   frameRate(FRAME);
-  myHangman = new Hangman(80, 0, windowWidth, windowHeight-80, TEXTSIZE, 0);
+  myHangman = new Hangman(80*windowWidth/1902, 0, windowWidth, windowHeight-80*windowHeight/936, TEXTSIZE*windowWidth/1902, 0);
   createCanvas(windowWidth, windowHeight);
   myHangman.init();
   myHangman.initalize();
@@ -478,6 +511,7 @@ function setup() {
 }
 
 function draw() {
+  print('('+windowWidth+', '+windowHeight+')')
   
   if (myHangman.getOff()===0){
     background(0,0,0);
@@ -488,7 +522,8 @@ function draw() {
    }
   
     myHangman.refresh();
-    myHangman.play(random(words[max(myHangman.getStage()-1,0)]),random(hints[max(myHangman.getStage()-1,0)]),650,700,90,1370,510,25);
+    myHangman.play(random(words[max(myHangman.getStage()-1,0)]),
+    random(hints[max(myHangman.getStage()-1,0)]),680*windowWidth/1902,700*windowHeight/936,90*windowWidth/1902,1370*windowWidth/1902,510*windowHeight/936,25*windowWidth/1902);
   }
 }
 
