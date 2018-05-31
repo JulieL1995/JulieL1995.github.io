@@ -1,0 +1,25 @@
+{
+    "LocalObservationDateTime": "2012-09-20T15:25:00-04:00",
+    "EpochTime": 1348169100,
+    "WeatherText": "Partly Sunny",
+    "WeatherIcon": 3,
+    "IsDayTime": true,
+    "Temperature": 
+    {
+        "Metric": 
+        {
+            "Value": 18.9,
+            "Unit": "C",
+            "UnitType": 17
+        },
+        "Imperial": 
+        {
+            "Value": 66,
+            "Unit": "F",
+            "UnitType": 18
+        }
+    },
+    "MobileLink": "http://m.accuweather.com/en/us/state-college-pa/16801/current-weather/335315?lang=en-us",
+    "Link": "http://www.accuweather.com/en/us/state-college-pa/16801/current-weather/335315?lang=en-us"
+}
+
